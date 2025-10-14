@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فروشگاه آنلاین عینک با طراحی مدرن - جدیدترین مدلهای عینک آفتابی و طبی">
+    <meta name="keywords" content="عینک, عینک آفتابی, عینک طبی, فروشگاه عینک, مدلهای جدید عینک">
+    <title>ویژنری شیدز هاب - فروشگاه تخصصی عینک</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .product-image {
+            transition: all 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <i data-feather="eye" class="text-primary h-8 w-8"></i>
+                    <span class="text-xl font-bold text-gray-800 mr-2">ویژنری شیدز</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#" class="nav-link text-gray-700 hover:text-primary">خانه</a>
+                    <a href="#products" class="nav-link text-gray-700 hover:text-primary">محصولات</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary">درباره ما</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary">تماس با ما</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                    <i data-feather="menu" class="h-6 w-6"></i>
+                </button>
+                
+                <!-- Cart and User Icons -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="#" class="relative">
+                        <i data-feather="shopping-cart" class="text-gray-700 hover:text-primary"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="#">
+                        <i data-feather="user" class="text-gray-700 hover:text-primary"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-2 border-t">
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary">خانه</a>
+                <a href="#products" class="block py-2 text-gray-700 hover:text-primary">محصولات</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">درباره ما</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">تماس با ما</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">جدیدترین مدلهای عینک سال ۲۰۲۳</h1>
+                <p class="text-xl mb-8">با خرید از ویژنری شیدز هاب، استایل خود را متحول کنید. کیفیت بی نظیر با قیمت مناسب</p>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="#products" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">مشاهده محصولات</a>
+                    <a href="#about" class="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition duration-300">درباره ما</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="http://static.photos/fashion/1200x630/1" alt="مدلهای عینک" class="rounded-lg shadow-xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">دسته بندی محصولات</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Category 1 -->
+                <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/2" alt="عینک آفتابی" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 group-hover:text-primary">عینک آفتابی</h3>
+                    </div>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/3" alt="عینک طبی" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 group-hover:text-primary">عینک طبی</h3>
+                    </div>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/4" alt="عینک ورزشی" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 group-hover:text-primary">عینک ورزشی</h3>
+                    </div>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/5" alt="عینک لاکچری" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold text-lg text-gray-800 group-hover:text-primary">عینک لاکچری</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">محصولات پرفروش</h2>
+            
+            <!-- Filter -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button class="px-4 py-2 text-sm font-medium rounded-r-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:z-10">
+                        همه محصولات
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium border-t border-b border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:z-10">
+                        عینک آفتابی
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium border-t border-b border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:z-10">
+                        عینک طبی
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:z-10">
+                        عینک ورزشی
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/6" alt="عینک مدل A1" class="product-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
+                            پرفروش
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-200">
+                                افزودن به سبد خرید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">عینک مدل A1</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-1">(15)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">۱,۲۹۰,۰۰۰ تومان</span>
+                            <span class="text-gray-400 text-sm line-through">۱,۵۹۰,۰۰۰ تومان</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/7" alt="عینک مدل B2" class="product-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">
+                            جدید
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-200">
+                                افزودن به سبد خرید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">عینک مدل B2</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-1">(8)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">۹۹۰,۰۰۰ تومان</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/8" alt="عینک مدل C3" class="product-image w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-200">
+                                افزودن به سبد خرید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">عینک مدل C3</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-1">(23)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">۱,۴۵۰,۰۰۰ تومان</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="http://static.photos/fashion/640x360/9" alt="عینک مدل D4" class="product-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
+                            پرفروش
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-200">
+                                افزودن به سبد خرید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">عینک مدل D4</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm mr-1">(12)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">۱,۱۹۰,۰۰۰ تومان</span>
+                            <span class="text-gray-400 text-sm line-through">۱,۴۹۰,۰۰۰ تومان</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Button -->
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition duration-300">
+                    مشاهده همه محصولات
+                    <i data-feather="arrow-left" class="mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="http://static.photos/office/640x360/1" alt="درباره ویژنری شیدز" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">درباره ویژنری شیدز هاب</h2>
+                    <p class="text-gray-600 mb-4">
+                        ویژنری شیدز هاب با بیش از ۱۰ سال سابقه درخشان در زمینه فروش عینک‌های طبی، آفتابی و ورزشی، همواره به عنوان یکی از پیشگامان این صنعت شناخته شده است. ما با ارائه محصولات با کیفیت و طراحی‌های مدرن، رضایت مشتریان را در اولویت قرار داده‌ایم.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        تیم متخصص ما با دانش فنی بالا و شناخت دقیق از نیازهای مشتریان، بهترین انتخاب‌ها را برای شما به ارمغان می‌آورد. کیفیت، اصالت و نوآوری سه اصل اساسی در فعالیت‌های ما هستند.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-3">
+                                <i data-feather="check-circle" class="text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">تضمین کیفیت محصولات</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-3">
+                                <i data-feather="truck" class="text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">ارسال سریع و رایگان</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-3">
+                                <i data-feather="shield" class="text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">گارانتی ۱۸ ماهه</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-3">
+                                <i data-feather="headphones" class="text-primary"></i>
+                            </div>
+                            <span class="text-gray-700">پشتیبانی ۲۴ ساعته</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">نظرات مشتریان</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/1" alt="رضا محمدی" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">رضا محمدی</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        عینکی که خریدم واقعا عالی بود. کیفیت شیشه‌ها و فریم خیلی خوبه. پشتیبانی هم خیلی سریع پاسخگو بودن. حتما دوباره خرید می‌کنم.
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/2" alt="سارا حسینی" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">سارا حسینی</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        طراحی عینک‌ها خیلی شیک و مدرنه. من که عاشق مدل A1 شدم. دوستانم هم بعد از دیدن عینک من از این سایت خرید کردند.
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/3" alt="امید کریمی" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">امید کریمی</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        به عنوان کسی که عینک طبی استفاده می‌کنم، باید بگم لنزهای این عینک‌ها واقعا کیفیت بالایی دارن. چشم‌هام دیگه اذیت نمی‌شه. ممنون از کیفیت خوب محصولات.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">عضویت در خبرنامه</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">برای دریافت جدیدترین تخفیف‌ها و محصولات، ایمیل خود را وارد کنید</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="آدرس ایمیل شما" class="flex-grow px-4 py-3 rounded-r-lg focus:outline-none text-gray-800">
+                <button class="bg-secondary hover:bg-secondary-dark px-6 py-3 rounded-l-lg font-semibold transition duration-300">عضویت</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Us -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">تماس با ما</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Contact Info -->
+                <div class="md:w-1/3 bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">اطلاعات تماس</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                <i data-feather="mail" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700">ایمیل</h4>
+                                <p class="text-gray-600">info@visionaryshades.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                <i data-feather="map-pin" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700">آدرس</h4>
+                                <p class="text-gray-600">تهران، خیابان ولیعصر، کوچه فلانی، پلاک ۱۲۳</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-4 text-gray-800">شبکه‌های اجتماعی</h3>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="social-icon bg-gray-200 p-3 rounded-full hover:bg-primary hover:text-white">
+                            <i data-feather="instagram" class="text-gray-700 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-gray-200 p-3 rounded-full hover:bg-blue-500 hover:text-white">
+                            <i data-feather="twitter" class="text-gray-700 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-gray-200 p-3 rounded-full hover:bg-green-500 hover:text-white">
+                            <i data-feather="message-circle" class="text-gray-700 hover:text-white"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-gray-200 p-3 rounded-full hover:bg-blue-700 hover:text-white">
+                            <i data-feather="facebook" class="text-gray-700 hover:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="md:w-2/3">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">نام کامل</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">ایمیل</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="subject" class="block text-gray-700 mb-2">موضوع</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="message" class="block text-gray-700 mb-2">پیام</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition duration-300">ارسال پیام</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">درباره ویژنری شیدز هاب</h3>
+                    <p class="text-gray-400">
+                        ویژنری شیدز هاب با هدف ارائه بهترین و با کیفیت‌ترین عینک‌های طبی، آفتابی و ورزشی تأسیس شده است. ما به کیفیت و رضایت مشتری متعهد هستیم.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">لینک‌های سریع</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">خانه</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition duration-300">محصولات</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">درباره ما</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">تماس با ما</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">وبلاگ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">خدمات مشتریان</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">پرسش‌های متداول</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">رویه بازگرداندن کالا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">شرایط و ضوابط</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">حریم خصوصی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">راهنمای اندازه</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Payment Methods -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">روش‌های پرداخت</h3>
+                    <p class="text-gray-400 mb-4">ما تمامی روش‌های پرداخت معتبر را پذیرفته‌ایم:</p>
+                    <div class="flex flex-wrap gap-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" alt="Mastercard" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" class="h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Paypal_2014_logo.png/640px-Paypal_2014_logo.png" alt="Paypal" class="h-8">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">تمامی حقوق این وبسایت متعلق به ویژنری شیدز هاب می‌باشد © ۲۰۲۳</p>
+                <div class="flex space-x-4 space-x-reverse mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="message-circle" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i data-feather="arrow-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>
