@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="آرمانی ویژن - نمایندگی رسمی عینک‌های جورجو آرمانی در ایران. ترکیب هنر ایتالیایی با طراحی مدرن در کلکسیون‌های اختصاصی عینک‌های طبی و آفتابی">
-    <meta name="keywords" content="عینک آرمانی, عینک ایتالیایی, عینک طبی, عینک آفتابی, Giorgio Armani, آرمانی ویژن">
-    <meta name="author" content="Armani Vision">
-    <meta property="og:title" content="آرمانی ویژن - نمایندگی رسمی عینک‌های جورجو آرمانی">
-    <meta property="og:description" content="تجربه لوکس عینک‌های دست ساز ایتالیایی با طراحی‌های امضای جورجو آرمانی">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3">
-    <meta property="og:url" content="https://armanivision.com">
-    <meta name="theme-color" content="#8b0000">
-    <link rel="canonical" href="https://armanivision.com">
-    <title>آرمانی ویژن - نمایندگی رسمی عینک‌های جورجو آرمانی در ایران</title>
+    <title>آرمانی ویژن - نمایندگی رسمی عینک‌های جورجو آرمانی</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
@@ -40,517 +32,348 @@
         
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
         }
         
-        .lazy-load {
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .mobile-menu {
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
         }
         
-        .lazy-load.loaded {
-            opacity: 1;
-        }
-        
-        .collection-hover:hover .collection-img {
-            transform: scale(1.05);
-        }
-        
-        .collection-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-        }
-        
-        .hamburger {
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+        .mobile-menu.open {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
+    <!-- Mobile First Header -->
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-100">
-            <a href="/" class="text-2xl font-bold text-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold text-gray-800">
                 آرمانی<span class="text-primary">ویژن</span>
             </a>
             
-            <nav class="hidden md:flex space-x-8 space-x-reverse">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">خانه</a>
-                <a href="#collections" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">کلکسیون‌ها</a>
-                <a href="#products" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">عینک‌ها</a>
-                <a href="#about" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">درباره ما</a>
-                <a href="#stores" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">فروشگاه‌ها</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider">تماس با ما</a>
-            </nav>
-            
-            <div class="flex items-center space-x-5 space-x-reverse">
-                <button class="text-gray-700 hover:text-primary transition-colors">
-                    <i data-feather="search"></i>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button class="md:hidden text-gray-700" id="menu-toggle">
+                    <i data-feather="menu"></i>
                 </button>
-                <button class="text-gray-700 hover:text-primary transition-colors">
-                    <i data-feather="user"></i>
-                </button>
-                <button class="text-gray-700 hover:text-primary transition-colors relative">
-                    <i data-feather="shopping-bag"></i>
-                    <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                </button>
-                
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <div class="hamburger w-6 flex flex-col justify-between h-5">
-                        <span class="block w-full h-0.5 bg-gray-700 transition-all"></span>
-                        <span class="block w-full h-0.5 bg-gray-700 transition-all"></span>
-                        <span class="block w-full h-0.5 bg-gray-700 transition-all"></span>
-                    </div>
-                </button>
+                <div class="hidden md:flex items-center space-x-4 space-x-reverse">
+                    <button class="text-gray-700 hover:text-primary">
+                        <i data-feather="search"></i>
+                    </button>
+                    <button class="text-gray-700 hover:text-primary">
+                        <i data-feather="user"></i>
+                    </button>
+                    <button class="text-gray-700 hover:text-primary relative">
+                        <i data-feather="shopping-bag"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-                <a href="#" class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100">خانه</a>
-                <a href="#collections" class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100">کلکسیون‌ها</a>
-                <a href="#products" class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100">عینک‌ها</a>
-                <a href="#about" class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100">درباره ما</a>
-                <a href="#stores" class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100">فروشگاه‌ها</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors py-2">تماس با ما</a>
+        <div class="mobile-menu bg-white shadow-lg md:hidden" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#" class="py-2 text-gray-700 hover:text-primary">خانه</a>
+                <a href="#collections" class="py-2 text-gray-700 hover:text-primary">کلکسیون‌ها</a>
+                <a href="#products" class="py-2 text-gray-700 hover:text-primary">محصولات</a>
+                <a href="#about" class="py-2 text-gray-700 hover:text-primary">درباره ما</a>
+                <a href="#stores" class="py-2 text-gray-700 hover:text-primary">فروشگاه‌ها</a>
+                <a href="#contact" class="py-2 text-gray-700 hover:text-primary">تماس با ما</a>
+                <div class="pt-4 border-t border-gray-200 flex space-x-4">
+                    <button class="text-gray-700 hover:text-primary">
+                        <i data-feather="search"></i>
+                    </button>
+                    <button class="text-gray-700 hover:text-primary">
+                        <i data-feather="user"></i>
+                    </button>
+                    <button class="text-gray-700 hover:text-primary relative">
+                        <i data-feather="shopping-bag"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg h-screen flex items-center justify-center text-white mt-16">
+    <!-- Hero Section (Mobile Optimized) -->
+    <section class="hero-bg h-96 md:h-screen flex items-center justify-center text-white mt-16">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-light mb-6 leading-tight">کشف زیبایی در دیدگاه</h1>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-                تجربه ترکیبی بی‌نظیر از هنر ایتالیایی و طراحی مدرن در کلکسیون‌های اختصاصی عینک‌های ما
+            <h1 class="text-3xl md:text-5xl font-light mb-4">کشف زیبایی در دیدگاه</h1>
+            <p class="text-base md:text-xl mb-6 max-w-md mx-auto">
+                تجربه ترکیبی بی‌نظیر از هنر ایتالیایی و طراحی مدرن
             </p>
-            <a href="#collections" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full inline-block transition-colors font-medium uppercase tracking-wider">
+            <a href="#collections" class="bg-primary hover:bg-red-900 text-white px-6 py-2 md:px-8 md:py-3 rounded-full inline-block text-sm md:text-base">
                 مشاهده محصولات
             </a>
         </div>
     </section>
 
-    <!-- Collections Section -->
-    <section id="collections" class="py-16 md:py-24 bg-white">
+    <!-- Collections Section (Mobile Grid) -->
+    <section id="collections" class="py-12 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-light text-center mb-12 relative pb-4">
-                کلکسیون‌های ما
-                <span class="absolute bottom-0 right-1/2 translate-x-1/2 w-12 h-0.5 bg-primary"></span>
-            </h2>
+            <h2 class="text-2xl md:text-3xl font-light text-center mb-8">کلکسیون‌های ما</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
                 <!-- Collection 1 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg h-96 collection-hover">
-                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
-                         alt="کلکسیون کلاسیک آرمانی ویژن" 
-                         class="w-full h-full object-cover transition-transform duration-500 collection-img lazy-load"
-                         loading="lazy">
-                    <div class="absolute bottom-0 right-0 left-0 p-6 collection-overlay">
-                        <h3 class="text-xl text-white font-normal mb-1">کلکسیون کلاسیک</h3>
-                        <p class="text-gray-300 text-sm">طراحی‌های ماندگار برای مردان مدرن</p>
+                <div class="relative h-64 rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" 
+                         alt="کلکسیون کلاسیک" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 right-0 left-0 p-4 bg-gradient-to-t from-black to-transparent">
+                        <h3 class="text-white text-lg">کلکسیون کلاسیک</h3>
+                        <p class="text-gray-300 text-sm">طراحی‌های ماندگار</p>
                     </div>
                 </div>
                 
                 <!-- Collection 2 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg h-96 collection-hover">
-                    <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="کلکسیون مدرن آرمانی ویژن" 
-                         class="w-full h-full object-cover transition-transform duration-500 collection-img lazy-load"
-                         loading="lazy">
-                    <div class="absolute bottom-0 right-0 left-0 p-6 collection-overlay">
-                        <h3 class="text-xl text-white font-normal mb-1">کلکسیون مدرن</h3>
-                        <p class="text-gray-300 text-sm">طرح‌های جسورانه برای افراد پیشرو</p>
+                <div class="relative h-64 rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                         alt="کلکسیون مدرن" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 right-0 left-0 p-4 bg-gradient-to-t from-black to-transparent">
+                        <h3 class="text-white text-lg">کلکسیون مدرن</h3>
+                        <p class="text-gray-300 text-sm">طرح‌های جسورانه</p>
                     </div>
                 </div>
                 
                 <!-- Collection 3 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg h-96 collection-hover">
-                    <img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="ویرایش محدود آرمانی ویژن" 
-                         class="w-full h-full object-cover transition-transform duration-500 collection-img lazy-load"
-                         loading="lazy">
-                    <div class="absolute bottom-0 right-0 left-0 p-6 collection-overlay">
-                        <h3 class="text-xl text-white font-normal mb-1">ویرایش محدود</h3>
-                        <p class="text-gray-300 text-sm">طرح‌های اختصاصی برای سلیقه‌های خاص</p>
+                <div class="relative h-64 rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                         alt="ویرایش محدود" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 right-0 left-0 p-4 bg-gradient-to-t from-black to-transparent">
+                        <h3 class="text-white text-lg">ویرایش محدود</h3>
+                        <p class="text-gray-300 text-sm">طرح‌های اختصاصی</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-gray-100">
+    <!-- Featured Products (Mobile Carousel) -->
+    <section id="products" class="py-12 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-light text-center mb-12 relative pb-4">
-                درباره آرمانی ویژن
-                <span class="absolute bottom-0 right-1/2 translate-x-1/2 w-12 h-0.5 bg-primary"></span>
-            </h2>
+            <h2 class="text-2xl md:text-3xl font-light text-center mb-8">محصولات منتخب</h2>
             
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-gray-700 mb-6 leading-relaxed">
-                    آرمانی ویژن نمایانگر اوج طراحی عینک ایتالیایی است که زیبایی‌شناسی امضای جورجو آرمانی را با فناوری پیشرفته عینک‌سازی ترکیب می‌کند. هر فریم با دقت بالا ساخته شده تا ارزش‌های برند از جمله پیچیدگی، کیفیت و توجه به جزئیات را نشان دهد.
-                </p>
-                <p class="text-gray-700 mb-8 leading-relaxed">
-                    از انتخاب مواد اولیه مرغوب تا پرداخت نهایی، هر مرحله از فرآیند تولید ما نشان‌دهنده تعهد ما به برتری است. کلکسیون‌های ما برای تکمیل سبک‌های زندگی متنوع طراحی شده‌اند در حالی که سبک منحصر به فرد آرمانی را حفظ می‌کنند.
-                </p>
-                <a href="#stores" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full inline-block transition-colors font-medium uppercase tracking-wider">
-                    اطلاعات بیشتر
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section id="products" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-light text-center mb-12 relative pb-4">
-                محصولات منتخب
-                <span class="absolute bottom-0 right-1/2 translate-x-1/2 w-12 h-0.5 bg-primary"></span>
-            </h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
                 <!-- Product 1 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1583845112203-4547b7d737c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                             alt="عینک آفتابی آرمانی مدل GA-2104" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
-                        <div class="absolute top-4 left-4 bg-primary text-white text-xs px-2 py-1 rounded">جدید</div>
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583845112203-4547b7d737c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+                             alt="عینک آرمانی مدل GA-2104" 
+                             class="w-full h-full object-cover">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-medium text-gray-800 mb-1">GA-2104</h3>
+                    <div class="p-3">
+                        <h3 class="font-medium">GA-2104</h3>
                         <p class="text-gray-600 text-sm mb-2">عینک آفتابی کلاسیک</p>
                         <div class="flex justify-between items-center">
                             <span class="text-primary font-medium">2,490,000 تومان</span>
-                            <button class="text-gray-400 hover:text-primary transition-colors">
-                                <i data-feather="shopping-cart"></i>
+                            <button class="text-gray-400 hover:text-primary">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Product 2 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1556306535-38febf678080?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                             alt="عینک طبی آرمانی مدل GA-3102" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556306535-38febf678080?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+                             alt="عینک آرمانی مدل GA-3102" 
+                             class="w-full h-full object-cover">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-medium text-gray-800 mb-1">GA-3102</h3>
+                    <div class="p-3">
+                        <h3 class="font-medium">GA-3102</h3>
                         <p class="text-gray-600 text-sm mb-2">عینک طبی مدرن</p>
                         <div class="flex justify-between items-center">
                             <span class="text-primary font-medium">1,890,000 تومان</span>
-                            <button class="text-gray-400 hover:text-primary transition-colors">
-                                <i data-feather="shopping-cart"></i>
+                            <button class="text-gray-400 hover:text-primary">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
-                             alt="عینک آفتابی آرمانی مدل GA-4101" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
-                        <div class="absolute top-4 left-4 bg-primary text-white text-xs px-2 py-1 rounded">پرفروش</div>
+                <!-- On mobile, show only 2 products per row -->
+                <div class="hidden md:block bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" 
+                             alt="عینک آرمانی مدل GA-4101" 
+                             class="w-full h-full object-cover">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-medium text-gray-800 mb-1">GA-4101</h3>
+                    <div class="p-3">
+                        <h3 class="font-medium">GA-4101</h3>
                         <p class="text-gray-600 text-sm mb-2">عینک آفتابی مربعی</p>
                         <div class="flex justify-between items-center">
                             <span class="text-primary font-medium">3,250,000 تومان</span>
-                            <button class="text-gray-400 hover:text-primary transition-colors">
-                                <i data-feather="shopping-cart"></i>
+                            <button class="text-gray-400 hover:text-primary">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 4 -->
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="عینک طبی آرمانی مدل GA-5103" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
+                <div class="hidden md:block bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                             alt="عینک آرمانی مدل GA-5103" 
+                             class="w-full h-full object-cover">
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-medium text-gray-800 mb-1">GA-5103</h3>
+                    <div class="p-3">
+                        <h3 class="font-medium">GA-5103</h3>
                         <p class="text-gray-600 text-sm mb-2">عینک طبی گرد</p>
                         <div class="flex justify-between items-center">
                             <span class="text-primary font-medium">1,750,000 تومان</span>
-                            <button class="text-gray-400 hover:text-primary transition-colors">
-                                <i data-feather="shopping-cart"></i>
+                            <button class="text-gray-400 hover:text-primary">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full inline-block transition-colors font-medium uppercase tracking-wider">
+            <div class="text-center mt-8">
+                <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full inline-block text-sm">
                     مشاهده همه محصولات
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="py-16 md:py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl md:text-3xl font-light mb-4">با ما در ارتباط باشید</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-                برای دریافت آخرین به‌روزرسانی‌ها، پیش‌نمایش کلکسیون‌های جدید و پیشنهادات ویژه در خبرنامه ما عضو شوید.
+    <!-- Stores Section (Mobile Cards) -->
+    <section id="stores" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-light text-center mb-8">فروشگاه‌های ما</h2>
+            
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+                <!-- Store 1 -->
+                <div class="bg-gray-50 rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                             alt="فروشگاه تهران" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">تهران</h3>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-1"></i>
+                            خیابان ولیعصر، جنب پارک ساعی
+                        </p>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="phone" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۰۲۱-۲۲۳۳۴۴۵۵
+                        </p>
+                        <p class="text-gray-600 text-sm flex items-start">
+                            <i data-feather="clock" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۹ صبح تا ۹ شب
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Other stores hidden on mobile -->
+                <div class="hidden md:block bg-gray-50 rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                             alt="فروشگاه اصفهان" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">اصفهان</h3>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-1"></i>
+                            خیابان چهارباغ بالا
+                        </p>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="phone" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۰۳۱-۳۲۲۲۳۳۴۴
+                        </p>
+                        <p class="text-gray-600 text-sm flex items-start">
+                            <i data-feather="clock" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۱۰ صبح تا ۱۰ شب
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block bg-gray-50 rounded-lg shadow overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                             alt="فروشگاه مشهد" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium mb-2">مشهد</h3>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-1"></i>
+                            بلوار وکیل آباد
+                        </p>
+                        <p class="text-gray-600 text-sm mb-2 flex items-start">
+                            <i data-feather="phone" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۰۵۱-۳۷۷۷۸۸۹۹
+                        </p>
+                        <p class="text-gray-600 text-sm flex items-start">
+                            <i data-feather="clock" class="w-4 h-4 mt-1 mr-1"></i>
+                            ۹ صبح تا ۸ شب
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 md:hidden">
+                <a href="#" class="text-primary hover:underline">مشاهده همه فروشگاه‌ها</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter (Mobile Form) -->
+    <section class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-light text-center mb-4">با ما در ارتباط باشید</h2>
+            <p class="text-gray-300 text-center mb-6 max-w-md mx-auto">
+                برای دریافت آخرین به‌روزرسانی‌ها و پیشنهادات ویژه ایمیل خود را وارد کنید
             </p>
             
-            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="آدرس ایمیل شما" required 
-                       class="flex-grow px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary">
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="ایمیل شما" required 
+                       class="flex-grow px-4 py-2 rounded-r-full text-gray-800 focus:outline-none text-sm">
                 <button type="submit" 
-                        class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full transition-colors font-medium uppercase tracking-wider whitespace-nowrap">
+                        class="bg-primary hover:bg-red-900 text-white px-4 py-2 rounded-l-full text-sm">
                     عضویت
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Stores Section -->
-    <section id="stores" class="py-16 md:py-24 bg-gray-100">
+    <!-- Mobile Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8 text-sm">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-light text-center mb-12 relative pb-4">
-                فروشگاه‌های ما
-                <span class="absolute bottom-0 right-1/2 translate-x-1/2 w-12 h-0.5 bg-primary"></span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Store 1 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="فروشگاه آرمانی ویژن تهران" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-medium text-gray-800 mb-2">تهران</h3>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="map-pin" class="inline-block w-4 h-4 mr-1"></i>
-                            خیابان ولیعصر، جنب پارک ساعی، پلاک ۱۲۳۴
-                        </p>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="phone" class="inline-block w-4 h-4 mr-1"></i>
-                            ۰۲۱-۲۲۳۳۴۴۵۵
-                        </p>
-                        <p class="text-gray-600">
-                            <i data-feather="clock" class="inline-block w-4 h-4 mr-1"></i>
-                            همه روزه از ۹ صبح تا ۹ شب
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Store 2 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="فروشگاه آرمانی ویژن اصفهان" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-medium text-gray-800 mb-2">اصفهان</h3>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="map-pin" class="inline-block w-4 h-4 mr-1"></i>
-                            خیابان چهارباغ بالا، مجتمع تجاری کوروش، طبقه ۲
-                        </p>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="phone" class="inline-block w-4 h-4 mr-1"></i>
-                            ۰۳۱-۳۲۲۲۳۳۴۴
-                        </p>
-                        <p class="text-gray-600">
-                            <i data-feather="clock" class="inline-block w-4 h-4 mr-1"></i>
-                            همه روزه از ۱۰ صبح تا ۱۰ شب
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Store 3 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="فروشگاه آرمانی ویژن مشهد" 
-                             class="w-full h-full object-cover lazy-load"
-                             loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-medium text-gray-800 mb-2">مشهد</h3>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="map-pin" class="inline-block w-4 h-4 mr-1"></i>
-                            بلوار وکیل آباد، مجتمع تجاری الماس شرق، طبقه همکف
-                        </p>
-                        <p class="text-gray-600 mb-4">
-                            <i data-feather="phone" class="inline-block w-4 h-4 mr-1"></i>
-                            ۰۵۱-۳۷۷۷۸۸۹۹
-                        </p>
-                        <p class="text-gray-600">
-                            <i data-feather="clock" class="inline-block w-4 h-4 mr-1"></i>
-                            همه روزه از ۹ صبح تا ۸ شب
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-light text-center mb-12 relative pb-4">
-                تماس با ما
-                <span class="absolute bottom-0 right-1/2 translate-x-1/2 w-12 h-0.5 bg-primary"></span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-2 gap-6 mb-6">
                 <div>
-                    <h3 class="text-xl font-medium text-gray-800 mb-6">اطلاعات تماس</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i data-feather="mail" class="w-5 h-5 mt-1 mr-3 text-primary"></i>
-                            <div>
-                                <h4 class="font-medium text-gray-800">ایمیل</h4>
-                                <p class="text-gray-600">info@armanivision.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i data-feather="phone" class="w-5 h-5 mt-1 mr-3 text-primary"></i>
-                            <div>
-                                <h4 class="font-medium text-gray-800">تلفن</h4>
-                                <p class="text-gray-600">۰۲۱-۸۸۷۷۶۶۵۵</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i data-feather="map-pin" class="w-5 h-5 mt-1 mr-3 text-primary"></i>
-                            <div>
-                                <h4 class="font-medium text-gray-800">دفتر مرکزی</h4>
-                                <p class="text-gray-600">تهران، خیابان سهروردی شمالی، پلاک ۱۲۳، واحد ۵</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-medium text-gray-800 mt-8 mb-6">شبکه‌های اجتماعی</h3>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-gray-600">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-gray-600">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-gray-600">
-                            <i data-feather="twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-gray-600">
-                            <i data-feather="linkedin"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-white mb-3">آرمانی ویژن</h3>
+                    <p>نمایندگی رسمی عینک‌های جورجو آرمانی در ایران</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-medium text-gray-800 mb-6">پیام به ما</h3>
-                    <form class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" placeholder="نام شما" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <input type="email" placeholder="ایمیل شما" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        </div>
-                        <input type="text" placeholder="موضوع" 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        <textarea rows="5" placeholder="پیام شما" 
-                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
-                        <button type="submit" 
-                                class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg transition-colors font-medium">
-                            ارسال پیام
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-white text-lg font-medium mb-4">آرمانی ویژن</h3>
-                    <p class="leading-relaxed">
-                        ارائه‌دهنده برترین و باکیفیت‌ترین عینک‌های طراحی شده توسط جورجو آرمانی در ایران با گارانتی رسمی و خدمات پس از فروش معتبر.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-white text-lg font-medium mb-4">لینک‌های مفید</h3>
+                    <h3 class="text-white mb-3">لینک‌های مفید</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition-colors">سوالات متداول</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">شرایط بازگشت کالا</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">راهنمای اندازه‌گیری</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">حریم خصوصی</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">شرایط و ضوابط</a></li>
+                        <li><a href="#" class="hover:text-white">سوالات متداول</a></li>
+                        <li><a href="#" class="hover:text-white">شرایط بازگشت</a></li>
                     </ul>
                 </div>
-                
-                <div>
-                    <h3 class="text-white text-lg font-medium mb-4">خدمات مشتریان</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition-colors">پیگیری سفارش</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">راهنمای خرید</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">ثبت نظرات</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">تماس با پشتیبانی</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">بازخورد مشتریان</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-white text-lg font-medium mb-4">خبرنامه</h3>
-                    <p class="mb-4 leading-relaxed">
-                        با عضویت در خبرنامه از آخرین تخفیف‌ها و محصولات جدید باخبر شوید.
-                    </p>
-                    <form class="flex">
-                        <input type="email" placeholder="ایمیل شما" required 
-                               class="flex-grow px-4 py-2 rounded-r-full text-gray-800 focus:outline-none">
-                        <button type="submit" 
-                                class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-l-full transition-colors">
-                            <i data-feather="arrow-left"></i>
-                        </button>
-                    </form>
-                </div>
             </div>
             
-            <div class="border-t border-gray-800 pt-8 text-center">
+            <div class="pt-4 border-t border-gray-700 text-center">
                 <p>&copy; 2023 آرمانی ویژن. تمامی حقوق محفوظ است.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hidden items-center justify-center transition-all hover:bg-primary-dark">
-        <i data-feather="arrow-up"></i>
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-10 h-10 bg-primary text-white rounded-full shadow-lg hidden items-center justify-center md:hidden">
+        <i data-feather="arrow-up" class="w-4 h-4"></i>
     </button>
 
     <script>
@@ -558,137 +381,83 @@
         feather.replace();
         
         // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = mobileMenuButton.querySelector('.hamburger');
         
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            hamburger.classList.toggle('active');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = menuToggle.querySelector('svg');
+            if (mobileMenu.classList.contains('open')) {
+                icon.setAttribute('data-feather', 'x');
+            } else {
+                icon.setAttribute('data-feather', 'menu');
+            }
+            feather.replace();
         });
         
-        // Back to Top Button
-        const backToTopButton = document.getElementById('back-to-top');
+        // Close menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuToggle.querySelector('svg').setAttribute('data-feather', 'menu');
+                feather.replace();
+            });
+        });
         
+        // Back to top button
         window.addEventListener('scroll', () => {
+            const backToTopButton = document.getElementById('back-to-top');
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('hidden');
-                backToTopButton.classList.add('flex');
             } else {
                 backToTopButton.classList.add('hidden');
-                backToTopButton.classList.remove('flex');
             }
         });
         
-        backToTopButton.addEventListener('click', () => {
+        document.getElementById('back-to-top').addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
         
-        // Lazy Load Images
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Adjust for fixed header
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Image lazy loading
         document.addEventListener('DOMContentLoaded', function() {
-            const lazyImages = document.querySelectorAll('.lazy-load');
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
             
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const lazyImage = entry.target;
-                        lazyImage.src = lazyImage.getAttribute('src');
-                        lazyImage.classList.add('loaded');
-                        observer.unobserve(lazyImage);
-                    }
-                });
-            });
-            
-            lazyImages.forEach(lazyImage => {
-                imageObserver.observe(lazyImage);
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                            hamburger.classList.remove('active');
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
                         }
-                    }
+                    });
                 });
-            });
-            
-            // Newsletter form submission
-            const newsletterForm = document.querySelector('.newsletter form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const emailInput = newsletterForm.querySelector('input[type="email"]');
-                    if (emailInput.value) {
-                        alert('با تشکر از عضویت شما در خبرنامه ما!');
-                        emailInput.value = '';
-                    }
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
                 });
             }
         });
-        
-        // Schema Markup for SEO
-        const schemaMarkup = {
-            "@context": "https://schema.org",
-            "@type": "Optician",
-            "name": "آرمانی ویژن",
-            "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3",
-            "@id": "https://armanivision.com",
-            "url": "https://armanivision.com",
-            "telephone": "+982188776655",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "خیابان سهروردی شمالی، پلاک ۱۲۳، واحد ۵",
-                "addressLocality": "تهران",
-                "addressCountry": "IR"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 35.715298,
-                "longitude": 51.404343
-            },
-            "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday"
-                ],
-                "opens": "09:00",
-                "closes": "21:00"
-            },
-            "sameAs": [
-                "https://instagram.com/armanivision",
-                "https://facebook.com/armanivision",
-                "https://twitter.com/armanivision"
-            ]
-        };
-        
-        const scriptTag = document.createElement('script');
-        scriptTag.type = 'application/ld+json';
-        scriptTag.text = JSON.stringify(schemaMarkup);
-        document.head.appendChild(scriptTag);
     </script>
 </body>
 </html>
